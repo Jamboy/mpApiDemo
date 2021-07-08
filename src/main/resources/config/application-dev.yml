@@ -1,0 +1,58 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://81.71.123.32:3306/missyou?characterEncoding=utf-8&serverTimezone=GMT%2B8
+    username: root
+    password: Kivia114@
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+  redis:
+    localhost: localhost
+    port: 6379
+    database: 7
+    password:
+    listen-pattern: __keyevent@7__:expired
+
+rocketmq:
+  consumer:
+    consumer-group: SleeveConsumerGroup
+  producer:
+    producer-group: SleeveProducerGroup
+  namesrv-addr: 127.0.0.1:9876
+
+
+missyou:
+  security:
+    jwt-key: 7777777yue
+    token-expired-in: 86400000
+  order:
+    max-sku-limit: 777
+    pay-time-limit: 3600
+    pay-callback-host: http://talelin.com
+    pay-callback-path: /v1/payment/wx/notify
+
+#spring:
+#  profiles:
+#    active: dev
+#  jpa:
+#    hibernate:
+#      ddl-auto: none
+#  jackson:
+#    property-naming-strategy: SNAKE_CASE
+#    serialization:
+#      WRITE_DATES_AS_TIMESTAMPS: true
+#
+#missyou:
+#  api-package: com.lin.missyou.api
+#wx:
+#  appid: wx3d98668ba3fd1585
+#  appsecret: 75512b257962d3c0399fc562072e85f6
+#  code2session:https://api.weixin.qq.com/sns/jscode2session?appid={0}&secret={1}&js_code={2}&grant_type=authorization_code
+#
+#
